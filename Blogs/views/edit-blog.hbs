@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pageTitle}}</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <link rel="stylesheet" href="/css/forms.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        <li class="main-header__item"><a class="{{#if activeShop}}active{{/if}}" href="/">Blogs</a></li>
+        <li class="main-header__item"><a class="{{#if activeAddblog}}active{{/if}}" href="/add-blog">Add
+            Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {{#if blogs}}
+    <form class="blog-form" action="/edit-blog" method="POST">
+      <div class="form-control">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="{{blogs.title}}" readonly="readonly">
+      </div>
+      <div class="form-control">
+        <label for="category">Category</label>
+        <select id="category" name="category" aria-readonly="true" value=" {{this.category}}">
+          <option>{{blogs.category}}</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" value="{{blogs.email}}" readonly="readonly">
+      </div>
+      <div class="form-control">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" value="{{blogs.author}}" readonly="readonly">
+      </div>
+      <div class="form-control">
+        <label for="dateOfUpload">Date Of Upload</label>
+        <input type="date" id="dateOfUpload" name="dateOfUpload" value="{{blogs.dateOfUpload}}" min="1950-01-01"
+          max="2050-12-31" readonly="readonly">
+      </div>
+      <div class="form-control">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" rows="5">{{blogs.description}}</textarea>
+      </div>
+      <input type="hidden" value="{{blogs.id}}" name="blogId">
+      <button class="btn" type="submit">Save</button>
+    </form>
+    {{/if}}
+  </main>
+
+</body>
+
+</html>

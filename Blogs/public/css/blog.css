@@ -1,0 +1,39 @@
+.blog-form {
+  width: 20rem;
+  max-width: 90%;
+  margin: auto;
+  background-color:rgb(139, 12, 54);
+}
+
+.blog-item {
+  width: 20rem;
+  max-width: 50%;
+}
+
+.blog__title {
+  font-size: 1.2rem;
+  text-align: left;
+  color: royalblue;
+  margin-left: 20px;
+}
+
+.blog__category {
+  text-align: left;
+}
+
+.blog__description {
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+.blog__date {
+  text-align: left;
+}
+
+.blog__email {
+  text-align: left;
+}
+
+.blog__author {
+  text-align: left;
+}

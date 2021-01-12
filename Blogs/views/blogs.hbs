@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pageTitle}}</title>
+  <link rel="stylesheet" href="/css/main.css">
+
+  <link rel="stylesheet" href="/css/blog.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <header class="main-header">
+    <nav class="main-header__nav">
+      <ul class="main-header__item-list">
+        <li class="main-header__item"><a class="{{#if activeShop}}active{{/if}}" href="/">Blogs</a></li>
+        <li class="main-header__item"><a class="{{#if activeAddblog}}active{{/if}}" href="/add-blog">Add
+            Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {{#if blogs}}
+    <div class="grid">
+      {{#each blogs}}
+      <article class="card blog-item">
+        <header class="card__header">
+          <p class="blog__title">{{this.title}}
+          <p>
+        </header>
+        <div class="card__content">
+          <p class="blog__category">Category : {{this.category}}</p>
+        </div>
+        <div class="card__content">
+          <p class="blog__email">Email : {{this.email}}
+          <p>
+        </div>
+        <div class="card__content">
+          <p class="blog__author">Author : {{this.author}}</p>
+        </div>
+        <div class="card__content">
+          <p class="blog__date">Uploaded Date : {{this.dateOfUpload}}
+          <p>
+        </div>
+        <div class="card__content">
+          <p class="blog__description">Description : {{this.description}}
+          <p>
+        </div>
+        <div class="button">
+          <a href="/left-shift/{{this.id}}" class="btns"><i class="material-icons"
+              style="font-size:48px;color:brown">arrow_back</i></a>
+          <a href="/right-shift/{{this.id}}" class="btns"><i class="material-icons"
+              style="font-size:48px;color:brown">arrow_forward</i></a>
+          <a href="/edit-blog/{{this.id}}" class="btns"><i class="material-icons"
+              style="font-size:48px;color:brown">edit</i></a>
+          <a href="/delete-blog/{{this.id}}" class="btns"><i class="material-icons"
+              style="font-size:48px;color:brown">delete_sweep</i></a>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+    {{ else}}
+    <h1>No Blogs Found!</h1>
+    {{/if}}
+  </main>
+
+</body>
+
+</html>
